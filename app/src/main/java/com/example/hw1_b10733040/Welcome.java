@@ -26,14 +26,10 @@ public class Welcome extends AppCompatActivity {
 
         toBlueTooth = (Button) findViewById(R.id.button_BlueTooth);
 
-        toBlueTooth.setOnClickListener( new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Context context = Welcome.this;
-                Intent startActivityIntent = new Intent(context, MainActivity.class);
-                startActivity(startActivityIntent);
-            }
+        toBlueTooth.setOnClickListener(v -> {
+            Context context = Welcome.this;
+            Intent startActivityIntent = new Intent(context, MainActivity.class);
+            startActivity(startActivityIntent);
         });
     }
 }
