@@ -67,8 +67,13 @@ class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewH
         holder.tvInfo.setText("裝置資訊：\n"+arrayList.get(position).getDeviceByteInfo());
         holder.tvRssi.setText("訊號強度："+arrayList.get(position).getRssi());
         //抓Navigation的action並設置OnClickListener
+        AFragmentDirections.ActionAFragmentToBFragment action = AFragmentDirections.actionAFragmentToBFragment();
+        action.setMessage(arrayList.get(position).getDeviceName());
+        action.setMessage2("訊號強度："+arrayList.get(position).getRssi());
+        action.setMessage3("裝置位址："+ arrayList.get(position).getAddress());
+        action.setMessage4("裝置資訊：\n"+arrayList.get(position).getDeviceByteInfo());
         holder.tvButton.setOnClickListener(
-                Navigation.createNavigateOnClickListener(R.id.action_AFragment_to_BFragment)
+                Navigation.createNavigateOnClickListener(action)
         );
     }
 

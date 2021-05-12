@@ -17,5 +17,25 @@
         android:id="@+id/BFragment"
         android:name="com.example.hw1_b10733040.BFragment"
         android:label="fragment_b"
-        tools:layout="@layout/fragment_b" />
+        tools:layout="@layout/fragment_b" >
+        <argument
+            android:name="message"
+            app:argType="string"
+            android:defaultValue="123" />
+        <argument
+            android:name="message2"
+            app:argType="string"
+            android:defaultValue="123" />
+        <argument
+            android:name="message3"
+            app:argType="string"
+            android:defaultValue="123" />
+        <argument
+            android:name="message4"
+            app:argType="string"
+            android:defaultValue="123" />
+        <action
+            android:id="@+id/action_BFragment_to_AFragment"
+            app:destination="@id/AFragment" />
+    </fragment>
 </navigation>

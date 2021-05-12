@@ -33,6 +33,7 @@ public class AFragment extends Fragment {
     boolean isScanning = false;
     BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -70,7 +71,6 @@ public class AFragment extends Fragment {
                 mAdapter.clearDevice();
             }
         });
-
         return view;
     }
 
