@@ -1,9 +1,7 @@
 package com.example.hw1_b10733040;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,7 +17,7 @@ import java.util.List;
 
 
 class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private List<ScannedData> arrayList = new ArrayList<>();
+    public List<ScannedData> arrayList = new ArrayList<>();
 
     private Context context;
     public RecyclerViewAdapter(Context context) {

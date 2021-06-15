@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BlueTooth low energy</string>
+    <string name="app_name">BlueTooth Low Energy</string>
     <string name="title_activity_welcome">HW1_B10733040</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
