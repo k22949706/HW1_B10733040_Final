@@ -1,6 +1,9 @@
 package com.example.hw1_b10733040;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -14,6 +17,7 @@ import java.util.List;
 
 public class History extends AppCompatActivity {
 
+    private Button toWelcome;
     private RecyclerView historyRecyclerView;
     private HistoryAdapter mAdapter;
     private AppDatabase mDb;
@@ -41,6 +45,14 @@ public class History extends AppCompatActivity {
         // Initialize the adapter and attach it to the RecyclerView
         mAdapter = new HistoryAdapter(this);
         historyRecyclerView.setAdapter(mAdapter);
+
+        toWelcome = (Button) findViewById(R.id.historyToWelcome);
+        toWelcome.setOnClickListener(v -> {
+            Context context = History.this;
+            Intent startActivityIntent = new Intent(context, Welcome.class);
+            startActivity(startActivityIntent);
+            finish();
+        });
 
         /*
          Add a touch helper to the RecyclerView to recognize when a user swipes to delete an item.

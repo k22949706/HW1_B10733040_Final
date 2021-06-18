@@ -4,6 +4,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,6 +30,7 @@ public class AFragment extends Fragment {
     RecyclerViewAdapter mAdapter;
     boolean isScanning = false;
     BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+    private Button toWelcome;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,8 +41,9 @@ public class AFragment extends Fragment {
                 (BluetoothManager) getActivity().getSystemService(Context.BLUETOOTH_SERVICE);
         mBluetoothAdapter = bluetoothManager.getAdapter();
 
-        /**設置Recyclerview列表*/
         View view = inflater.inflate(R.layout.fragment_a, container, false);
+
+        /**設置Recyclerview列表*/
         // 1. get a reference to recyclerView
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView_ScannedList);
 
@@ -52,7 +55,7 @@ public class AFragment extends Fragment {
         recyclerView.setAdapter(mAdapter);
 
         final Button btScan = view.findViewById(R.id.button_Scan);
-        btScan.setOnClickListener((v)-> {
+        btScan.setOnClickListener(v-> {
             if (isScanning) {
                 /**關閉掃描*/
                 isScanning = false;
@@ -68,6 +71,15 @@ public class AFragment extends Fragment {
                 mAdapter.clearDevice();
             }
         });
+
+        toWelcome = (Button) view.findViewById(R.id.button_toWelcome);
+        toWelcome.setOnClickListener(v -> {
+            Context context = getActivity();
+            Intent startActivityIntent = new Intent(context, Welcome.class);
+            startActivity(startActivityIntent);
+            getActivity().finish();
+        });
+
         return view;
     }
 
